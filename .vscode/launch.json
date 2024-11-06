@@ -24,6 +24,16 @@
             "module": "unittest"
         },
         {
+            "name": "tests.chromacmapper",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "unittest",
+            "args": [
+                "discover",
+                "tests.chromacmapper"
+            ],
+        },
+        {
             "name": "tests.cpra",
             "type": "debugpy",
             "request": "launch",
