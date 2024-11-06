@@ -29,9 +29,11 @@ class NcbiChromAcMapperCreator:
             for row in reader:
                 if row[0].startswith("#"):
                     continue
-                acs.append(row[6])
-                chroms.append(row[9])
-        return ChromAcMapper(chroms=chroms, acs=acs)
+                if row[7] == "Primary Assembly":
+                    acs.append(row[6])
+                    chroms.append(row[9])
+        chrom_ac_mapper = ChromAcMapper(chroms=chroms, acs=acs)
+        return chrom_ac_mapper
 
     def get_local_data_file(self) -> Path:
         # Get the platform-specific user data directory (e.g., ~/.my_package)
