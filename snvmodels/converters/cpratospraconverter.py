@@ -1,8 +1,8 @@
 """Convert Cpra to Spra."""
 
-from ..chromacmapper import ChromAcMapper
-from .cpra import Cpra
-from .spra import Spra
+from snvmodels.chromacmapper import ChromAcMapper
+from snvmodels.cpra import Cpra
+from snvmodels.spra import Spra
 
 
 class CpraToSpraConverter:
@@ -11,6 +11,6 @@ class CpraToSpraConverter:
         self.chrom_ac_mapper = chrom_ac_mapper
 
     def convert(self, cpra: Cpra) -> Spra:
-        ac = self.chrom_ac_mapper.chrom_to_ac(chr=cpra.chrom)
+        ac = self.chrom_ac_mapper.chrom_to_ac(chrom=cpra.chrom)
         spra = Spra(ac=ac, pos=cpra.pos, ref=cpra.ref, alt=cpra.alt)
         return spra

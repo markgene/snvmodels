@@ -34,6 +34,16 @@
             ],
         },
         {
+            "name": "tests.converters",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "unittest",
+            "args": [
+                "discover",
+                "tests.converters"
+            ],
+        },
+        {
             "name": "tests.cpra",
             "type": "debugpy",
             "request": "launch",
