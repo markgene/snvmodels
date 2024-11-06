@@ -1,4 +1,4 @@
 *.pyc
 /build/
 /dist/
-/pyoncokb.egg-info/
+/snvmodels.egg-info/
