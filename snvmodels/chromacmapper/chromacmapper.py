@@ -14,7 +14,7 @@ class ChromAcMapper:
     chroms: List[str]
     acs: List[str]
     chrom2ac: Optional[Dict[str, str]] = None
-    ac2chromom: Optional[Dict[str, str]] = None
+    ac2chrom: Optional[Dict[str, str]] = None
 
     def __post_init__(self):
         if not isinstance(self.chroms, list):
@@ -27,27 +27,27 @@ class ChromAcMapper:
         for ac in self.acs:
             if not isinstance(ac, str):
                 raise ValueError(f"ac {ac} must be a str")
-        self.check_chrs_unique()
+        self.check_chroms_unique()
         self.check_acs_unique()
-        self.chr2ac = self.create_chrom2ac()
-        self.ac2chr = self.create_ac2chrom()
+        self.chrom2ac = self.create_chrom2ac()
+        self.ac2chrom = self.create_ac2chrom()
 
-    def check_chrs_unique(self):
-        if len(self.chrs) > len(set(self.chrs)):
-            raise RuntimeError("chrs have duplicated items")
+    def check_chroms_unique(self):
+        if len(self.chroms) > len(set(self.chroms)):
+            raise RuntimeError("chroms have duplicated items")
 
     def check_acs_unique(self):
         if len(self.acs) > len(set(self.acs)):
             raise RuntimeError("acs have duplicated items")
 
     def create_chrom2ac(self) -> Dict[str, str]:
-        return {k: v for k, v in zip(self.chrs, self.acs)}
+        return {k: v for k, v in zip(self.chroms, self.acs)}
 
     def create_ac2chrom(self) -> Dict[str, str]:
-        return {k: v for k, v in zip(self.acs, self.chrs)}
+        return {k: v for k, v in zip(self.acs, self.chroms)}
 
     def chrom_to_ac(self, chrom: str) -> str:
-        if chr in self.chrom2ac:
+        if chrom in self.chrom2ac:
             return self.chrom2ac[chrom]
         else:
             raise RuntimeError(f"fail to find chromosome {chrom}")
