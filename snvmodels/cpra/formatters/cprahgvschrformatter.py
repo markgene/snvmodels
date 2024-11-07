@@ -29,7 +29,7 @@ class CpraHgvsChrFormatter:
 
     def __new__(cls):
         if cls.instance is None:
-            cls.instance = super(CpraHgvsChrFormatter, cls).__new__(cls)
+            cls.instance = super().__new__(cls)
         return cls.instance
 
     def __init__(self):
