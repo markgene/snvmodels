@@ -44,6 +44,15 @@
             ],
         },
         {
+            "name": "tests.converters.test_cpratocspragrch37converter",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "unittest",
+            "args": [
+                "tests.converters.test_cpratocspragrch37converter"
+            ],
+        },
+        {
             "name": "tests.cpra",
             "type": "debugpy",
             "request": "launch",
